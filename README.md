@@ -1,75 +1,102 @@
-# Restaurant Ordering System 🍕
+# Restaurant Ordering System
 
-Групповой проект по созданию веб-сервиса доставки еды. Проект разделен на Backend (FastAPI) и Frontend (в разработке).
+Групповой проект веб-сервиса доставки еды. Backend на FastAPI, Frontend на React/Vite.
 
-## 🚀 Быстрый запуск (Docker)
+## Быстрый запуск
 
-Для запуска всего проекта (база + бэкенд) вам понадобится только Docker и Docker Compose.
+```bash
+docker compose up --build
+```
 
-1.  **Создайте файл `.env`** в корне (можете скопировать из `.env.example`):
-    ```bash
-    cp .env.example .env
-    ```
-2.  **Запустите проект**:
-    ```bash
-    docker-compose up --build
-    ```
-    API будет доступно по адресу: [http://localhost:8000](http://localhost:8000)
-    Документация Swagger: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- Swagger docs: http://localhost:8000/docs
+- Database: localhost:5433
 
----
+Остановить: `docker compose down`
 
-## 🛠 Технологический стек
+## Технологический стек
 
-- **Backend**: Python 3.11, FastAPI, SQLAlchemy 2.0
-- **Auth**: JWT, Passlib (bcrypt)
-- **Database**: PostgreSQL 16
-- **Migrations**: Alembic
-- **Testing**: Pytest, HTTPX
-- **DevOps**: Docker, GitHub Actions (CI/CD)
+**Backend**: Python 3.11, FastAPI, SQLAlchemy, PostgreSQL 16, JWT, Alembic  
+**Frontend**: React 19, Vite, React Router  
+**DevOps**: Docker, Docker Compose, GitHub Actions (CI/CD)  
+**Testing**: Pytest (backend), ESLint (frontend)
 
----
+## Структура проекта
 
-## 📖 Инструкция для разработчиков
-
-### 📦 Структура проекта
-```text
+```
 .
-├── backend/            # Исходный код бэкенда
-│   ├── routers/        # Эндпоинты API
-│   ├── migrations/     # Миграции базы данных (Alembic)
-│   ├── tests/          # Автотесты (Pytest)
-│   ├── models.py       # Модели SQLAlchemy
-│   ├── auth.py         # Логика безопасности и JWT
-│   └── Dockerfile      # Конфиг сборки бэкенда
-├── frontend/           # Клиентская часть (в разработке)
-├── docker-compose.yml  # Оркестрация сервисов
-└── .github/workflows   # Настройки CI/CD (тесты и деплой)
+├── backend/              # FastAPI сервер
+│   ├── routers/          # API endpoints (auth, cart, menu, orders, favorites)
+│   ├── migrations/        # Alembic миграции БД
+│   ├── tests/             # Unit тесты (pytest)
+│   ├── models.py          # SQLAlchemy модели
+│   ├── auth.py            # JWT и безопасность
+│   ├── Dockerfile         # Build config
+│   └── requirements.txt
+├── frontend/             # React + Vite
+│   ├── pages/             # Компоненты страниц (Home, Menu, Cart, Admin)
+│   ├── components/        # Переиспользуемые компоненты
+│   ├── Dockerfile         # Build config (multi-stage)
+│   ├── nginx.conf         # SPA routing
+│   ├── vite.config.js
+│   └── package.json
+├── docker-compose.yml    # Оркестрация 3 сервисов (db, backend, frontend)
+└── .github/workflows/    # GitHub Actions
+    ├── test.yml          # Линтинг и тесты на PR
+    └── publish.yml       # Линтинг + тесты + деплой на push в main
 ```
 
-### 🧪 Тестирование и Линтинг
-Перед пушем кода обязательно запускайте тесты и проверку стиля:
+## Разработка
+
+### Локальный запуск
+
+**Backend** (из папки backend):
+```bash
+python -m uvicorn main:app --reload
+```
+
+**Frontend** (из папки frontend):
+```bash
+npm install
+npm run dev
+```
+
+### Тестирование и линтинг
 
 ```bash
-# Запуск тестов (локально из папки backend)
-cd backend
-pytest tests
+# Backend тесты
+cd backend && pytest tests
 
-# Проверка стиля (из корня)
+# Backend lint
 ruff check backend
+
+# Frontend lint
+npm run lint --prefix frontend
+
+# Frontend build
+npm run build --prefix frontend
 ```
 
-### 🗄 Работа с базой данных (Миграции)
-Мы используем **Alembic**. Все изменения в `models.py` должны сопровождаться миграцией.
+### Database миграции
 
-**Создание миграции:**
 ```bash
-docker exec -it restaurant_backend alembic revision --autogenerate -m "Описание изменений"
+docker exec -it restaurant_backend alembic revision --autogenerate -m "описание"
+docker exec -it restaurant_backend alembic upgrade head
 ```
 
----
+## CI/CD
 
-### 🚢 CI/CD (GitHub Actions)
-В репозитории настроены два пайплайна:
-1.  **Tests**: Запускается при каждом Push/PR. Проверяет код линтером и прогоняет все тесты.
-2.  **Docker Publish**: Запускается при пуше в `main`. Собирает образ и пушит его в Docker Hub.
+**test.yml**: На PR в main — прогоняет тесты и lint (backend + frontend)
+
+**publish.yml**: На push/merge в main:
+1. Запускает тесты (backend + frontend)
+2. Если оба прошли — собирает и пушит образы в Docker Hub
+
+Деплой блокируется при ошибках тестов/линтинга.
+
+## GitHub Secrets
+
+Для автоматического деплоя нужны:
+- `DOCKER_USERNAME` — Docker Hub логин
+- `DOCKER_PASSWORD` — Docker Hub Access Token
