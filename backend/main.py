@@ -6,7 +6,18 @@ from fastapi.staticfiles import StaticFiles
 from backend.models import Base, engine
 from backend.routers import auth, cart, favorites, menu, orders
 
+from fastapi.middleware.cors import CORSMiddleware
+
+
 app = FastAPI(title="Restaurant Ordering System API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Разрешить все домены
+    allow_credentials=True,
+    allow_methods=["*"],  # Разрешить все методы
+    allow_headers=["*"],  # Разрешить все заголовки
+)
 
 # Mount static files for images
 static_path = "backend/static"

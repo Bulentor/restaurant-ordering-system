@@ -109,7 +109,7 @@ class OrderCreate(BaseModel):
     customer_name: str = Field(..., min_length=1, max_length=200)
     phone: str = Field(..., min_length=10, max_length=20)
     address: str = Field(..., min_length=1, max_length=500)
-    items: List[OrderItem] = Field(..., min_length=1)
+    items: List[OrderItem] = Field(...)
 
     @field_validator("phone")
     @classmethod
