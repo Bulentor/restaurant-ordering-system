@@ -1,13 +1,11 @@
 import os
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from backend.models import Base, engine
 from backend.routers import auth, cart, favorites, menu, orders
-
-from fastapi.middleware.cors import CORSMiddleware
-
 
 app = FastAPI(title="Restaurant Ordering System API")
 

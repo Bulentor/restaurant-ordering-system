@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { cn } from '@shared/lib/cn';
 
 interface ImageWithSkeletonProps {
@@ -18,15 +18,13 @@ export function ImageWithSkeleton({
 }: ImageWithSkeletonProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [loadedSrc, setLoadedSrc] = useState<string | undefined>(src);
+  const [currentSrc, setCurrentSrc] = useState<string | undefined>(src);
 
-  useEffect(() => {
-    if (src !== loadedSrc) {
-      setIsLoading(true);
-      setHasError(false);
-      setLoadedSrc(src);
-    }
-  }, [src, loadedSrc]);
+  if (src !== currentSrc) {
+    setCurrentSrc(src);
+    setIsLoading(true);
+    setHasError(false);
+  }
 
   const handleLoad = useCallback(() => {
     setIsLoading(false);
@@ -39,7 +37,7 @@ export function ImageWithSkeleton({
     onError?.();
   }, [onError]);
 
-  const showImage = !hasError && loadedSrc;
+  const showImage = !hasError && currentSrc;
 
   return (
     <div className={cn('relative overflow-hidden', containerClassName)}>
@@ -51,7 +49,7 @@ export function ImageWithSkeleton({
       {/* Image */}
       {showImage ? (
         <img
-          src={loadedSrc}
+          src={currentSrc}
           alt={alt}
           className={cn('w-full h-full object-cover', className)}
           onLoad={handleLoad}

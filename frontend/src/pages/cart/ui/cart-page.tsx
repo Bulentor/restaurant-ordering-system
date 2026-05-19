@@ -248,7 +248,6 @@ export function CartPage() {
     items.length,
     accessToken,
     clearCartStateOnly,
-    navigate,
   ]);
 
   const calculatedTotal = useMemo(() => {
