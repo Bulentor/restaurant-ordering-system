@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { User, LoginCredentials, RegisterCredentials } from './types';
-import { userApi } from '../api/user-api';
 
 interface AuthState {
   user: User | null;
@@ -16,62 +15,57 @@ interface AuthState {
   initialize: () => void;
 }
 
+const mockUser: User = {
+  id: "demo-id-123",
+  name: "Тестовый Клиент",
+  email: "demo@delivery.com",
+};
+
 export const useAuthStore = create<AuthState>()(
   persist(
     (set, get) => ({
-      user: null,
-      accessToken: null,
-      isAuthenticated: false,
-      isLoading: true,
-      isInitialized: false,
+      user: mockUser,
+      accessToken: "mock-jwt-token",
+      isAuthenticated: true,
+      isLoading: false,
+      isInitialized: true,
 
       initialize: () => {
-        set({ isLoading: false, isInitialized: true });
+        set({ 
+          user: mockUser,
+          accessToken: "mock-jwt-token",
+          isAuthenticated: true,
+          isLoading: false, 
+          isInitialized: true 
+        });
       },
 
-      login: async (credentials) => {
-        try {
-          const response = await userApi.login(credentials);
-          set({
-            accessToken: response.access_token,
-            isAuthenticated: true,
-            isLoading: false,
-            isInitialized: true,
-          });
-        } catch (error) {
-          set({ isLoading: false, isInitialized: true });
-          throw error;
-        }
-      },
-
-      register: async (credentials) => {
-        try {
-          await userApi.register(credentials);
-          const tokenResponse = await userApi.login(credentials as LoginCredentials);
-          set({
-            accessToken: tokenResponse.access_token,
-            isAuthenticated: true,
-            isLoading: false,
-            isInitialized: true,
-          });
-        } catch (error) {
-          set({ isLoading: false, isInitialized: true });
-          throw error;
-        }
-      },
-
-      logout: () => {
-        get().clearAuth();
-      },
-
-      clearAuth: () => {
+      login: async () => {
         set({
-          user: null,
-          accessToken: null,
-          isAuthenticated: false,
+          user: mockUser,
+          accessToken: "mock-jwt-token",
+          isAuthenticated: true,
           isLoading: false,
           isInitialized: true,
         });
+      },
+
+      register: async () => {
+        set({
+          user: mockUser,
+          accessToken: "mock-jwt-token",
+          isAuthenticated: true,
+          isLoading: false,
+          isInitialized: true,
+        });
+      },
+
+      logout: () => {
+        return;
+      },
+
+      clearAuth: () => {
+        return;
       },
     }),
     {
