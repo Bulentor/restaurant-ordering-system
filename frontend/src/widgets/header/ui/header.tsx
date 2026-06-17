@@ -24,7 +24,7 @@ export function Header() {
             to="/" 
             className="text-2xl font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors"
           >
-            ShopUI
+            Никитыч
           </Link>
           
           <nav className="flex items-center gap-4">
@@ -32,7 +32,7 @@ export function Header() {
               to="/catalog" 
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
             >
-              Catalog
+              Каталог
             </Link>
             
             {isAuthenticated ? (
@@ -73,7 +73,7 @@ export function Header() {
                   onClick={handleLogout}
                   className="text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors font-medium"
                 >
-                  Logout
+                  Выйти
                 </button>
               </>
             ) : (
@@ -81,7 +81,7 @@ export function Header() {
                 to="/login" 
                 className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
               >
-                Login
+                Войти
               </Link>
             )}
           </nav>
