@@ -15,15 +15,16 @@ interface AuthState {
   initialize: () => void;
 }
 
+// ИСПРАВЛЕНО: id теперь число (число 123 вместо строки "demo-id-123")
 const mockUser: User = {
-  id: "demo-id-123",
+  id: 123, 
   name: "Тестовый Клиент",
   email: "demo@delivery.com",
 };
 
 export const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({ // ИСПРАВЛЕНО: убрали неиспользуемый аргумент 'get'
       user: mockUser,
       accessToken: "mock-jwt-token",
       isAuthenticated: true,
