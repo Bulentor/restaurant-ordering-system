@@ -3,9 +3,10 @@ import { persist } from 'zustand/middleware';
 
 const mockUser: any = {
   id: 123,
-  email: "demo@delivery.com",
-  name: "Тестовый Клиент",
-  role: "user"
+  email: "admin@delivery.com",
+  name: "Администратор Ресторана",
+  role: "admin",      
+  isAdmin: true 
 };
 
 export interface AuthState {
