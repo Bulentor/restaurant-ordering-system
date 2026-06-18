@@ -13,16 +13,16 @@ export function HomePage() {
       <section className="mb-12">
         <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-white">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            Welcome to ShopUI
+            Добро пожаловать сударь!
           </h1>
           <p className="text-lg md:text-xl text-purple-100 mb-6 max-w-2xl">
-            Discover amazing products at great prices. Browse our catalog and find exactly what you need.
+            Вас ждут вкуснейшие блюда традиционной русской кухни, по справедливой цене!
           </p>
           <Link
             to="/catalog"
             className="inline-block bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition-colors"
           >
-            Browse Catalog
+            Каталог
           </Link>
         </div>
       </section>
@@ -30,7 +30,7 @@ export function HomePage() {
       {/* Categories Section */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-          Categories
+          Категории
         </h2>
         {categoriesLoading ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -77,13 +77,13 @@ export function HomePage() {
       <section>
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Featured Products
+            Рекомендуемые блюда
           </h2>
           <Link
             to="/catalog"
             className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium transition-colors"
           >
-            View All →
+            Посмотреть всё →
           </Link>
         </div>
         <ProductList items={menuItems.slice(0, 8)} isLoading={productsLoading} />

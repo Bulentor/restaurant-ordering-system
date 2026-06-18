@@ -60,7 +60,7 @@ export function LoginPage() {
             {!isLoginMode && (
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Name
+                  Имя
                 </label>
                 <input
                   id="name"
@@ -75,7 +75,7 @@ export function LoginPage() {
 
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Username
+                Никнейм
               </label>
               <input
                 id="username"
@@ -90,7 +90,7 @@ export function LoginPage() {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Password
+                Пароль
               </label>
               <input
                 id="password"
@@ -115,13 +115,13 @@ export function LoginPage() {
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
               )}
-              {isLoginMode ? 'Sign In' : 'Create Account'}
+              {isLoginMode ? 'Войти' : 'Создать аккаунт'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-gray-600 dark:text-gray-400">
-              {isLoginMode ? "Don't have an account?" : 'Already have an account?'}{' '}
+              {isLoginMode ? "Нет акаунта?" : 'Готовы зайти на аккаунт?'}{' '}
               <button
                 onClick={() => {
                   setIsLoginMode(!isLoginMode);
@@ -139,7 +139,7 @@ export function LoginPage() {
               to="/catalog"
               className="text-center block text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-colors"
             >
-              ← Back to Catalog
+              ← Назад в каталог
             </Link>
           </div>
         </div>

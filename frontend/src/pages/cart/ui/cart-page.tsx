@@ -268,7 +268,7 @@ export function CartPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Shopping Cart
+          Корзина
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
           {totalItems} {totalItems === 1 ? "item" : "items"} in your cart
@@ -309,16 +309,16 @@ export function CartPage() {
             />
           </svg>
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-            Your cart is empty
+            Ваша корзина пуста
           </h3>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Add some products to get started
+            Добавьте блюда чтобы начать
           </p>
           <button
             onClick={() => navigate("/catalog")}
             className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-colors"
           >
-            Browse Catalog
+            Каталог
           </button>
         </div>
       ) : (
@@ -433,7 +433,7 @@ export function CartPage() {
                       onClick={() => handleRemoveItem(cartItem.id)}
                       className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm font-medium transition-colors"
                     >
-                      Remove
+                      Удалить
                     </button>
                   </div>
                 </div>
@@ -444,20 +444,20 @@ export function CartPage() {
           {/* Order Summary */}
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-              Order Summary
+              Сумма заказа
             </h2>
 
             <div className="space-y-2 mb-4">
               <div className="flex justify-between text-gray-600 dark:text-gray-400">
-                <span>Subtotal</span>
+                <span>Промежуточная сумма</span>
                 <span>${calculatedTotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600 dark:text-gray-400">
-                <span>Delivery</span>
-                <span>Free</span>
+                <span>Доставка</span>
+                <span>Бесплатна</span>
               </div>
               <div className="border-t border-gray-200 dark:border-gray-700 pt-2 flex justify-between text-lg font-bold text-gray-900 dark:text-white">
-                <span>Total</span>
+                <span>Итого</span>
                 <span className="text-purple-600 dark:text-purple-400">
                   ${calculatedTotal.toFixed(2)}
                 </span>
@@ -468,14 +468,14 @@ export function CartPage() {
               onClick={handleClearCart}
               className="w-full mb-4 py-2 px-4 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg font-medium transition-colors"
             >
-              Clear Cart
+              Очистить корзину
             </button>
           </div>
 
           {/* Delivery Details Form */}
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-              Delivery Details
+              Детали доставки
             </h2>
 
             <div className="space-y-4">
@@ -484,7 +484,7 @@ export function CartPage() {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                 >
-                  Full Name
+                  Полное имя
                 </label>
                 <input
                   type="text"
@@ -501,7 +501,7 @@ export function CartPage() {
                   htmlFor="phone"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                 >
-                  Phone Number
+                  Телефон
                 </label>
                 <input
                   type="tel"
@@ -518,7 +518,7 @@ export function CartPage() {
                   htmlFor="address"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                 >
-                  Delivery Address
+                  Адресс доставки
                 </label>
                 <textarea
                   id="address"
@@ -556,11 +556,11 @@ export function CartPage() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    Processing...
+                    Загрузка...
                   </>
                 ) : (
                   <>
-                    Place Order
+                    Заказать
                     <svg
                       className="w-5 h-5"
                       fill="none"
