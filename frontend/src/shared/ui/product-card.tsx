@@ -116,7 +116,7 @@ export function ProductCard({ item, onClick }: ProductCardProps) {
         )}
         
         <div className="flex items-center justify-between">
-          <span className="font-bold">{product.price.toLocaleString('ru-RU')} ₽</span>
+          <span className="font-bold">{item.price.toLocaleString('ru-RU')} ₽</span>
           
           {item.categories.length > 0 && (
             <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
