@@ -116,9 +116,7 @@ export function ProductCard({ item, onClick }: ProductCardProps) {
         )}
         
         <div className="flex items-center justify-between">
-          <span className="text-xl font-bold text-purple-600 dark:text-purple-400">
-            ${item.price.toFixed(2)}
-          </span>
+          <span className="font-bold">{product.price.toLocaleString('ru-RU')} ₽</span>
           
           {item.categories.length > 0 && (
             <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">

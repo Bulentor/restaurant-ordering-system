@@ -84,7 +84,7 @@ export function ProductPage() {
                 {product.name}
               </h1>
               <p className="text-3xl font-bold text-purple-600 dark:text-purple-400">
-                ${product.price.toFixed(2)}
+                {product.price.toLocaleString('ru-RU')} ₽
               </p>
             </div>
 
