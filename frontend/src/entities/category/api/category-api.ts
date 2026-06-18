@@ -6,7 +6,7 @@ const mockCategories: Category[] = [
   { id: 3, name: "Горячее" },
   { id: 4, name: "Выпечка" },
   { id: 5, name: "Напитки" },
-  { id: 6, name: "Холодные" }
+  { id: 6, name: "Холодные блюда" }
 ];
 
 export const categoryApi = {
