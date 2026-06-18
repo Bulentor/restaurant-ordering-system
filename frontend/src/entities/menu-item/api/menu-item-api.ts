@@ -53,7 +53,7 @@ const mockMenuItems: MenuItem[] = [
     description: "Традиционный суп на основе капусты. Готовится как наваристый мясной бульон, так и в постном варианте с грибами.",
     price: 490.00,
     image: "/menu-media/shi.jpg",
-    categories: [{ id: 6, name: "Супы" }]
+    categories: [{ id: 1, name: "Супы" }]
   },
   {
     id: 7,
@@ -61,7 +61,7 @@ const mockMenuItems: MenuItem[] = [
     description: "Прозрачный и ароматный рыбный суп, приготовленный на свежей щуке",
     price: 490.00,
     image: "/menu-media/uha.jpg",
-    categories: [{ id: 7, name: "Супы" }]
+    categories: [{ id: 1, name: "Супы" }]
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ const mockMenuItems: MenuItem[] = [
     description: "Нежнейший деликатесный холодец, приготовленный с добавлением премиального говяжьего языка.",
     price: 530.00,
     image: "/menu-media/holodec.jpg",
-    categories: [{ id: 8, name: "Холодные блюда" }]
+    categories: [{ id: 6, name: "Холодные блюда" }]
   },
   {
     id: 9,
@@ -77,7 +77,7 @@ const mockMenuItems: MenuItem[] = [
     description: "Традиционный русский холодный суп, который идеально освежает в жаркий день",
     price: 350.00,
     image: "/menu-media/okroshka.jpg",
-    categories: [{ id: 9, name: "Супы" }]
+    categories: [{ id: 1, name: "Супы" }]
   },
 ];
 
