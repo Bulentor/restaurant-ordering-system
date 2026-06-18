@@ -1,14 +1,16 @@
-import { apiClient } from '@shared/api';
-import type { Category } from '../model/types';
+import type { Category } from '../model/types'; 
+
+const mockCategories: Category[] = [
+  { id: 1, name: "Супы" },
+  { id: 2, name: "Блины" },
+  { id: 3, name: "Горячее" },
+  { id: 4, name: "Выпечка" },
+  { id: 5, name: "Напитки" }
+];
 
 export const categoryApi = {
   async getCategories(): Promise<Category[]> {
-    const response = await apiClient.get<Category[]>('/categories');
-    return response.data;
-  },
-
-  async getCategoryById(id: number): Promise<Category> {
-    const response = await apiClient.get<Category>(`/categories/${id}`);
-    return response.data;
-  },
+    await new Promise(resolve => setTimeout(resolve, 200));
+    return mockCategories;
+  }
 };
