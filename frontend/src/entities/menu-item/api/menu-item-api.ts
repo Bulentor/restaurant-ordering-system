@@ -12,7 +12,7 @@ const mockMenuItems: MenuItem[] = [
     name: "Борщ по-боярски с пампушками",
     description: "Наваристый борщ на говяжьей грудинке с молодой свеклой, ароматным чесноком и свежей зеленью. Подается с тремя горячими пампушками и фермерской сметаной.",
     price: 490.00,
-    image: "./menu-media/borsh.jpg",
+    image: "/menu-media/borsh.jpg",
     categories: [{ id: 1, name: "Супы" }]
   },
   {
@@ -20,7 +20,7 @@ const mockMenuItems: MenuItem[] = [
     name: "Блины со слабосоленым лососем",
     description: "Три пышных домашних блинчика на молоке, скрученных с ломтиками нежной красной рыбы собственного посола и веточкой укропа.",
     price: 520.00,
-    image: "./menu-media/blini.jpg",
+    image: "/menu-media/blini.jpg",
     categories: [{ id: 2, name: "Блины" }]
   },
   {
@@ -28,7 +28,7 @@ const mockMenuItems: MenuItem[] = [
     name: "Пельмени Сибирские ручной лепки",
     description: "Традиционные сытные пельмени со смешанным фаршем из фермерской говядины и свинины со специями. Подаются со сливочным маслом и черным перцем.",
     price: 450.00,
-    image: "./menu-media/pelmeni.jpg",
+    image: "/menu-media/pelmeni.jpg",
     categories: [{ id: 3, name: "Горячее" }]
   },
   {
@@ -36,7 +36,7 @@ const mockMenuItems: MenuItem[] = [
     name: "Пирожки с капустой и яйцом",
     description: "Два сытных пирожка из воздушного дрожжевого теста по старинному рецепту с начинкой из тушеной капусты и отварного яйца.",
     price: 190.00,
-    image: "./menu-media/piroshki.jpg",
+    image: "/menu-media/piroshki.jpg",
     categories: [{ id: 4, name: "Выпечка" }]
   },
   {
@@ -44,7 +44,7 @@ const mockMenuItems: MenuItem[] = [
     name: "Домашний Квас на ржаном хлебе",
     description: "Освежающий традиционный русский напиток собственного приготовления с легкой кислинкой и ароматом ржаной корочки. 0.5 л.",
     price: 150.00,
-    image: "./menu-media/kvas.jpg",
+    image: "/menu-media/kvas.jpg",
     categories: [{ id: 5, name: "Напитки" }]
   },
   {
@@ -52,7 +52,7 @@ const mockMenuItems: MenuItem[] = [
     name: "Щи",
     description: "Традиционный суп на основе капусты. Готовится как наваристый мясной бульон, так и в постном варианте с грибами.",
     price: 490.00,
-    image: "./menu-media/Blini.jpg",
+    image: "/menu-media/Blini.jpg",
     categories: [{ id: 6, name: "Супы" }]
   },
   {
@@ -60,7 +60,7 @@ const mockMenuItems: MenuItem[] = [
     name: "Уха с щукой",
     description: "Прозрачный и ароматный рыбный суп, приготовленный на свежей щуке",
     price: 490.00,
-    image: "./menu-media/shi.jpg",
+    image: "/menu-media/shi.jpg",
     categories: [{ id: 7, name: "Супы" }]
   },
   {
@@ -68,15 +68,15 @@ const mockMenuItems: MenuItem[] = [
     name: "Холодец с говяжим языком",
     description: "Нежнейший деликатесный холодец, приготовленный с добавлением премиального говяжьего языка.",
     price: 490.00,
-    image: "./menu-media/holodec.jpg",
-    categories: [{ id: 8, name: "Супы" }]
+    image: "/menu-media/holodec.jpg",
+    categories: [{ id: 8, name: "Холодные блюда" }]
   },
   {
     id: 9,
     name: "Окрошка на квасе",
     description: "Традиционный русский холодный суп, который идеально освежает в жаркий день",
     price: 490.00,
-    image: "./menu-media/okroshka.jpg",
+    image: "/menu-media/okroshka.jpg",
     categories: [{ id: 9, name: "Супы" }]
   },
 ];
